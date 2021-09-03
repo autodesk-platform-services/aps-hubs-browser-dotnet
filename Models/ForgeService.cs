@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Autodesk.Forge;
 
 namespace forge_hubs_browser_dotnet
@@ -13,19 +10,7 @@ namespace forge_hubs_browser_dotnet
         public DateTime ExpiresAt;
     }
 
-    public interface IForgeService
-    {
-        string GetAuthorizationURL();
-        Task<Tokens> GenerateTokens(string code);
-        Task<Tokens> RefreshTokens(Tokens tokens);
-        Task<dynamic> GetUserProfile(Tokens tokens);
-        Task<IEnumerable<dynamic>> GetHubs(Tokens tokens);
-        Task<IEnumerable<dynamic>> GetProjects(string hubId, Tokens tokens);
-        Task<IEnumerable<dynamic>> GetContents(string hubId, string projectId, string folderId, Tokens tokens);
-        Task<IEnumerable<dynamic>> GetVersions(string hubId, string projectId, string itemId, Tokens tokens);
-    }
-
-    public partial class ForgeService : IForgeService
+    public partial class ForgeService
     {
         private readonly string _clientId;
         private readonly string _clientSecret;

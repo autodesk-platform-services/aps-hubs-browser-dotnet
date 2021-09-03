@@ -1,6 +1,4 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace forge_hubs_browser_dotnet
@@ -10,9 +8,9 @@ namespace forge_hubs_browser_dotnet
     public class HubsController : ControllerBase
     {
         private readonly ILogger<HubsController> _logger;
-        private readonly IForgeService _forgeService;
+        private readonly ForgeService _forgeService;
 
-        public HubsController(ILogger<HubsController> logger, IForgeService forgeService)
+        public HubsController(ILogger<HubsController> logger, ForgeService forgeService)
         {
             _logger = logger;
             _forgeService = forgeService;

@@ -1,10 +1,3 @@
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
 namespace forge_hubs_browser_dotnet
 {
     public class Startup
@@ -27,7 +20,7 @@ namespace forge_hubs_browser_dotnet
             {
                 throw new ApplicationException("Missing required environment variables FORGE_CLIENT_ID, FORGE_CLIENT_SECRET, or FORGE_CALLBACK_URL.");
             }
-            services.AddSingleton<IForgeService>(new ForgeService(ForgeClientID, ForgeClientSecret, ForgeCallbackURL));
+            services.AddSingleton<ForgeService>(new ForgeService(ForgeClientID, ForgeClientSecret, ForgeCallbackURL));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

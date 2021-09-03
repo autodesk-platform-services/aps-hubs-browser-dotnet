@@ -1,26 +1,22 @@
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace forge_hubs_browser_dotnet
 {
-
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly ILogger<AuthController> _logger;
-        private readonly IForgeService _forgeService;
+        private readonly ForgeService _forgeService;
 
-        public AuthController(ILogger<AuthController> logger, IForgeService forgeService)
+        public AuthController(ILogger<AuthController> logger, ForgeService forgeService)
         {
             _logger = logger;
             _forgeService = forgeService;
         }
 
-        public static async Task<Tokens> PrepareTokens(HttpRequest request, HttpResponse response, IForgeService forgeService)
+        public static async Task<Tokens> PrepareTokens(HttpRequest request, HttpResponse response, ForgeService forgeService)
         {
             if (!request.Cookies.ContainsKey("internal_token"))
             {
@@ -81,7 +77,10 @@ namespace forge_hubs_browser_dotnet
                 return Unauthorized();
             }
             dynamic profile = await _forgeService.GetUserProfile(tokens);
-            return profile;
+            return new
+            {
+                name = string.Format("{0} {1}", profile.firstName, profile.lastName)
+            };
         }
 
         [HttpGet("token")]
@@ -92,11 +91,12 @@ namespace forge_hubs_browser_dotnet
             {
                 return Unauthorized();
             }
-            dynamic response = new System.Dynamic.ExpandoObject();
-            response.access_token = tokens.PublicToken;
-            response.token_type = "Bearer";
-            response.expires_in = Math.Floor((tokens.ExpiresAt - DateTime.Now.ToUniversalTime()).TotalSeconds);
-            return response;
+            return new
+            {
+                access_token = tokens.PublicToken,
+                token_type = "Bearer",
+                expires_in = Math.Floor((tokens.ExpiresAt - DateTime.Now.ToUniversalTime()).TotalSeconds)
+            };
         }
     }
 }

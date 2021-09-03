@@ -1,10 +1,8 @@
-using System;
-using System.Threading.Tasks;
 using Autodesk.Forge;
 
 namespace forge_hubs_browser_dotnet
 {
-    public partial class ForgeService : IForgeService
+    public partial class ForgeService
     {
         public string GetAuthorizationURL()
         {

@@ -1,11 +1,9 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
 
 namespace forge_hubs_browser_dotnet
 {
-    public partial class ForgeService : IForgeService
+    public partial class ForgeService
     {
         public async Task<IEnumerable<dynamic>> GetHubs(Tokens tokens)
         {
