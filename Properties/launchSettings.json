@@ -20,7 +20,7 @@
       "dotnetRunMessages": "true",
       "launchBrowser": true,
       "hotReloadProfile": "aspnetcore",
-      "applicationUrl": "https://localhost:8081;http://localhost:8080",
+      "applicationUrl": "http://localhost:8080",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
