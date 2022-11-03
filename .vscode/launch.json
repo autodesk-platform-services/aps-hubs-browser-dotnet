@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/forge-hubs-browser-dotnet.dll",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/aps-hubs-browser-dotnet.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

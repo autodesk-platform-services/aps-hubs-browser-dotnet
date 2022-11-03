@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/forge-hubs-browser-dotnet.csproj",
+                "${workspaceFolder}/aps-hubs-browser-dotnet.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/forge-hubs-browser-dotnet.csproj",
+                "${workspaceFolder}/aps-hubs-browser-dotnet.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/forge-hubs-browser-dotnet.csproj",
+                "${workspaceFolder}/aps-hubs-browser-dotnet.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

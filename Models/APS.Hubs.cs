@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Autodesk.Forge;
 using Autodesk.Forge.Model;
 
-public partial class ForgeService
+public partial class APS
 {
     public async Task<IEnumerable<dynamic>> GetHubs(Tokens tokens)
     {

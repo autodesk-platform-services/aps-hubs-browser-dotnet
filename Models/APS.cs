@@ -9,7 +9,7 @@ public class Tokens
     public DateTime ExpiresAt;
 }
 
-public partial class ForgeService
+public partial class APS
 {
     private readonly string _clientId;
     private readonly string _clientSecret;
@@ -17,7 +17,7 @@ public partial class ForgeService
     private readonly Scope[] InternalTokenScopes = new Scope[] { Scope.DataRead, Scope.ViewablesRead };
     private readonly Scope[] PublicTokenScopes = new Scope[] { Scope.ViewablesRead };
 
-    public ForgeService(string clientId, string clientSecret, string callbackUri)
+    public APS(string clientId, string clientSecret, string callbackUri)
     {
         _clientId = clientId;
         _clientSecret = clientSecret;

@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "forge_hubs_browser_dotnet": {
+    "aps_hubs_browser_dotnet": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
