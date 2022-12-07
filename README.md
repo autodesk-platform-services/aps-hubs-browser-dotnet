@@ -8,7 +8,7 @@
 the [Hubs Browser](https://tutorials.autodesk.io/tutorials/hubs-browser/) tutorial
 from https://tutorials.autodesk.io.
 
-![screenshot](thumbnail.png)
+![thumbnail](thumbnail.png)
 
 ## Development
 
