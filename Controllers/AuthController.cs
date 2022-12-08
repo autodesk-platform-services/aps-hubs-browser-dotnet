@@ -70,7 +70,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpGet("profile")]
-    public async Task<dynamic> GetProfile(string code)
+    public async Task<dynamic> GetProfile()
     {
         var tokens = await PrepareTokens(Request, Response, _aps);
         if (tokens == null)
@@ -85,7 +85,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpGet("token")]
-    public async Task<dynamic> GetPublicToken(string code)
+    public async Task<dynamic> GetPublicToken()
     {
         var tokens = await PrepareTokens(Request, Response, _aps);
         if (tokens == null)
