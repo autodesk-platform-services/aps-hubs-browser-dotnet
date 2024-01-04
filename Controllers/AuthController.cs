@@ -80,7 +80,7 @@ public class AuthController : ControllerBase
         dynamic profile = await _aps.GetUserProfile(tokens);
         return new
         {
-            name = string.Format("{0} {1}", profile.firstName, profile.lastName)
+            name = profile.Name
         };
     }
 
