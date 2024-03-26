@@ -77,10 +77,10 @@ public class AuthController : ControllerBase
         {
             return Unauthorized();
         }
-        dynamic profile = await _aps.GetUserProfile(tokens);
+        var profile = await _aps.GetUserProfile(tokens);
         return new
         {
-            name = string.Format("{0} {1}", profile.firstName, profile.lastName)
+            name = profile.Name
         };
     }
 
