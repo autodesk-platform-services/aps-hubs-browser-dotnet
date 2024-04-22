@@ -40,4 +40,11 @@ public partial class APS
         var versions = await dataManagementClient.GetItemVersionsAsync(projectId, itemId, accessToken: tokens.InternalToken);
         return versions.Data;
     }
+
+    public async Task<IEnumerable<RelationshipRefsData>> GetRelationships(string projectId, string versionId, Tokens tokens)
+    {
+        var dataManagementClient = new DataManagementClient(_sdkManager);
+        var relationships = await dataManagementClient.GetVersionRelationshipsRefsAsync(projectId, versionId, accessToken: tokens.InternalToken);
+        return relationships.Data;
+    }
 }

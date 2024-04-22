@@ -35,7 +35,17 @@ async function getContents(hubId, projectId, folderId = null) {
 
 async function getVersions(hubId, projectId, itemId) {
     const versions = await getJSON(`/api/hubs/${hubId}/projects/${projectId}/contents/${itemId}/versions`);
-    return versions.map(version => createTreeNode(`version|${version.id}`, version.attributes.createTime, 'icon-version'));
+    const nodes = [];
+    for (const version of versions) {
+        let urn = version.relationships.derivatives?.data?.id;
+        // If there's no URN, this file might be a shallow copy of another file in ACC/BIM360
+        if (!urn) {
+            const relationships = await getJSON(`/api/hubs/${hubId}/projects/${projectId}/contents/${itemId}/versions/${encodeURIComponent(version.id)}/relationships`);
+            urn = relationships.included.relationships.derivatives.data.id;
+        }
+        nodes.push(createTreeNode(`version|${urn}`, version.attributes.createTime, 'icon-version'));
+    }
+    return nodes;
 }
 
 export function initTree(selector, onSelectionChanged) {

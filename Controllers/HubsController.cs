@@ -71,4 +71,16 @@ public class HubsController : ControllerBase
         var versions = await _aps.GetVersions(project, item, tokens);
         return JsonConvert.SerializeObject(versions);
     }
+
+    [HttpGet("{hub}/projects/{project}/contents/{item}/versions/{version}/relationships")]
+    public async Task<ActionResult<string>> ListRelationships(string hub, string project, string item, string version)
+    {
+        var tokens = await AuthController.PrepareTokens(Request, Response, _aps);
+        if (tokens == null)
+        {
+            return Unauthorized();
+        }
+        var relationships = await _aps.GetRelationships(project, version, tokens);
+        return JsonConvert.SerializeObject(relationships);
+    }
 }
